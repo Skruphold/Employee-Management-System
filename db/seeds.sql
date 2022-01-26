@@ -19,8 +19,8 @@ VALUES  ('Hunter', 'Coleman', 1, 1),
         ('Jack', 'Dempsie', 3, NULL),
         ('Dan', 'Carman', 2, NULL);
 
-SELECT * FROM department
+SELECT * FROM department;
 
-SELECT * FROM employee_role
+SELECT * FROM employee_role;
 
-SELECT * FROM employee_name
+SELECT * FROM employee_name;
