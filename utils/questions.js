@@ -49,7 +49,7 @@ module.exports = {
         {
             type: "input",
             message: "What is the title for this new role?",
-            name: "titleRole",
+            name: "title",
         },
         {
             type: "input",
@@ -59,7 +59,7 @@ module.exports = {
         {
             type: "input",
             message: "What is the department for this new role?",
-            name: "departmentRole",
+            name: "dep_id",
         },
     ],
     removeRole: {

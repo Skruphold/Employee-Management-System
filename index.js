@@ -14,6 +14,8 @@ async function startQues() {
         case "Add Department":
             addDepartment();
             break;
+        case "Add Role":
+            newRole();
     }
 }
 
@@ -42,6 +44,21 @@ async function addDepartment() {
         if (err) throw err;
         console.log("New Department has been added.");
         startQues();
+        }
+    );
+}
+
+async function newRole() {
+    const roleOpt = await inquirer.prompt(questions.addRole)
+    connection.query("INSERT INTO role  SET ?", {
+            title: roleOpt.title,
+            salary: roleOpt.salary,
+            dep_id: roleOpt.dep_id
+        },
+        function (err) {
+            if (err) throw err;
+            console.log("New Role was added successfully");
+            startQues();
         }
     );
 }

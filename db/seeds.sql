@@ -21,6 +21,6 @@ VALUES  ('Hunter', 'Coleman', 1, 1),
 
 SELECT * FROM department;
 
-SELECT * FROM employee_role;
+SELECT * FROM role;
 
-SELECT * FROM employee_name;
+SELECT * FROM employee;
