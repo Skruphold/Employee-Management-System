@@ -31,7 +31,7 @@ module.exports = {
             type: "list",
             message: "What is the employee's role id?",
             name: "id",
-            choices: ["2", "3"]
+            choices: ["2", "3","4"]
         },
         {
             type: "list",

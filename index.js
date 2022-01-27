@@ -16,6 +16,10 @@ async function startQues() {
             break;
         case "Add Role":
             newRole();
+            break;
+        case "Update Employee Role":
+            updateRole();
+            break;
     }
 }
 
@@ -61,4 +65,45 @@ async function newRole() {
             startQues();
         }
     );
+}
+
+async function updateRole() {
+    connection.query("SELECT * FROM employee", async (err, employee) => {
+        const { staffMem, newPos } = await inquirer.prompt([{
+            type: "list",
+            message: "Choose employee to be updated.",
+            name: "staffMem",
+            choices: () => {
+                return employee.map((employee) => employee.last_name);
+            },
+        },
+        {
+            type: "list",
+            message: "What is the employee's new role?",
+            name: "newPos",
+            // choices: [1, 2, 3, 4],
+            choices: () => {
+                return employee.map((employee) => employee.employee_role_id);
+            }
+        }
+    ]);
+    console.log(newPos)
+    connection.query("UPDATE employee SET ? WHERE ?",
+    [
+        {
+            employee_role_id: newPos,
+        },
+        {
+            last_name: staffMem,
+        },
+    ],
+    function (err, res) {
+        if (err) throw err;
+        console.log(res.affectedRows + " role updated!\n");
+        console.table(employee);
+        startQues();
+    }
+    );
+    
+    })
 }
