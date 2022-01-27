@@ -11,6 +11,9 @@ async function startQues() {
         case "Add Employee":
             addEmployee();
             break;
+        case "Add Department":
+            addDepartment();
+            break;
     }
 }
 
@@ -20,7 +23,7 @@ async function addEmployee() {
         qry = "SELECT id as value, title as name FROM role"
         connection.query(qry, async (err, roles) => {
             const newEmployee = await inquirer.prompt(questions.addEmployee(roles, employees));
-            query = "INSERT INTO employee SET ?";
+            qry = "INSERT INTO employee SET ?";
             connection.query(qry, newEmployee, function (err) {
                 if (err) throw err;
                 console.log("Successfully added a new employee!");
@@ -30,6 +33,15 @@ async function addEmployee() {
     });
 }
 
-async function addDepartmentQues() {
-    
+async function addDepartment() {
+    const departmentOpt = await inquirer.prompt(questions.addDepartmentQues)
+    connection.query("INSERT INTO department SET ?", {
+        department_name: departmentOpt.department_name
+    },  
+        function error (err) {
+        if (err) throw err;
+        console.log("New Department has been added.");
+        startQues();
+        }
+    );
 }

@@ -30,14 +30,14 @@ module.exports = {
         {
             type: "list",
             message: "What is the employee's role id?",
-            name: "role_id",
-            choices: ["manger", "emplyee"]
+            name: "id",
+            choices: ["2", "3"]
         },
         {
             type: "list",
-            message: "What is the employee's role id?",
-            name: "role_id",
-            choices: ["manager", "emplyee"]
+            message: "What is the manager's role id?",
+            name: "id",
+            choices: ["4", "5"]
         },
     ],
     addDepartmentQues: {
