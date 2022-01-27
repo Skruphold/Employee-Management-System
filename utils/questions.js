@@ -17,8 +17,7 @@ module.exports = {
         "Remove A Role",
         ]
     },
-    addEmployee: (roles, employees) => [
-        {
+    addEmployee: (roles, employees) => [{
             type: "input",
             message: "What is the employee's first name?",
             name: "first_name",
@@ -32,13 +31,13 @@ module.exports = {
             type: "list",
             message: "What is the employee's role id?",
             name: "role_id",
-            choices: roles
+            choices: ["manger", "emplyee"]
         },
         {
             type: "list",
             message: "What is the employee's role id?",
             name: "role_id",
-            choices: employees
+            choices: ["manager", "emplyee"]
         },
     ],
     addDepartmentQues: {
