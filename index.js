@@ -102,20 +102,20 @@ const newRole = () => {
             {
                 type: 'input',
                 message: 'Please enter the salary for the role.',
-                name: 'roleSalary'
+                name: 'roleSal'
             },
             {
                 type: 'list',
                 message: 'Please enter the department of the role',
                 choices: departmentResult,
-                name: 'roleDept'
+                name: 'roleDep'
             }
         ]).then((answer) => {
             connection.query(`INSERT INTO role SET ?`,
             {
                 title: answer.roleName,
-                salary: answer.roleSalary,
-                dep_id: answer.roleDept
+                salary: answer.roleSal,
+                dep_id: answer.roleDep
             },
             (err, result) => {
                 if (err) {
