@@ -17,7 +17,7 @@ module.exports = {
         "Remove A Role",
         ]
     },
-    addEmployee: (roles, employees) => [{
+    addEmployee: (role, employee) => [{
             type: "input",
             message: "What is the employee's first name?",
             name: "first_name",
@@ -31,13 +31,14 @@ module.exports = {
             type: "list",
             message: "What is the employee's role id?",
             name: "id",
-            choices: ["2", "3","4"]
+            // choices: ["2", "3","4"]
+            choices: role
         },
         {
             type: "list",
             message: "What is the manager's role id?",
-            name: "id",
-            choices: ["4", "5"]
+            name: "manId",
+            choices: employee
         },
     ],
     addDepartmentQues: {
@@ -45,23 +46,23 @@ module.exports = {
         message: "What is the name of the department?",
         name: "department_name",
     },
-    addRole: [
-        {
-            type: "input",
-            message: "What is the title for this new role?",
-            name: "title",
-        },
-        {
-            type: "input",
-            message: "What is the salary for this new role?",
-            name: "salary",
-        },
-        {
-            type: "input",
-            message: "What is the department for this new role?",
-            name: "dep_id",
-        },
-    ],
+    // addRole: [
+    //     {
+    //         type: "input",
+    //         message: "What is the title for this new role?",
+    //         name: "titleRole",
+    //     },
+    //     {
+    //         type: "input",
+    //         message: "What is the salary for this new role?",
+    //         name: "salaryRole",
+    //     },
+    //     {
+    //         type: "input",
+    //         message: "What is the department id for this new role?",
+    //         name: "depIDRole",
+    //     },
+    // ],
     removeRole: {
         type: "list",
         message: "What is the employee's role?",
